@@ -57,22 +57,86 @@ This project provides a backend service for managing users. It includes APIs for
 
 ### User Registration and Authentication
 
-- `POST /api/register`: Register a new user. (Requires `name`, `email`, `password`, `phone`)
-- `POST /api/login`: Log in a user. (Requires `email`, `password`)
+- **POST /api/register**: Register a new user.
+  - **Body**: `{ "name": "John Doe", "email": "johndoe@example.com", "password": "password123", "phone": "1234567890" }`
+  - **Response**: 
+    ```json
+    {
+      "message": "User registered successfully"
+    }
+    ```
+
+- **POST /api/login**: Log in a user.
+  - **Body**: `{ "email": "johndoe@example.com", "password": "password123" }`
+  - **Response**: 
+    ```json
+    {
+      "token": "jwt_token_here"
+    }
+    ```
 
 ### User Profile
 
-- `GET /api/profile`: Get the user's profile. (Requires authentication with JWT token)
-- `PUT /api/profile`: Update the user's profile (name, email, phone). (Requires authentication with JWT token)
+- **GET /api/profile**: Get the user's profile. (Requires authentication with JWT token)
+  - **Headers**: `Authorization: Bearer <token>`
+  - **Response**: 
+    ```json
+    {
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "phone": "1234567890"
+    }
+    ```
+
+- **PUT /api/profile**: Update the user's profile (name, email, phone). (Requires authentication with JWT token)
+  - **Body**: `{ "name": "John Doe", "email": "johndoe_new@example.com", "phone": "0987654321" }`
+  - **Response**: 
+    ```json
+    {
+      "message": "Profile updated successfully"
+    }
+    ```
 
 ### Account Management
 
-- `POST /api/password-reset`: Reset the user's password. (Requires email)
-- `POST /api/deactivate`: Deactivate the user's account. (Requires authentication with JWT token)
+- **POST /api/password-reset**: Reset the user's password.
+  - **Body**: `{ "email": "johndoe@example.com" }`
+  - **Response**: 
+    ```json
+    {
+      "message": "Password reset email sent"
+    }
+    ```
+
+- **POST /api/deactivate**: Deactivate the user's account. (Requires authentication with JWT token)
+  - **Response**: 
+    ```json
+    {
+      "message": "Account deactivated successfully"
+    }
+    ```
 
 ### Admin
 
-- `GET /api/users`: Get a list of all registered users. (Requires admin authentication)
+- **GET /api/users**: Get a list of all registered users. (Requires admin authentication)
+  - **Headers**: `Authorization: Bearer <admin_token>`
+  - **Response**: 
+    ```json
+    [
+      {
+        "name": "John Doe",
+        "email": "johndoe@example.com",
+        "phone": "1234567890",
+        "isActive": true
+      },
+      {
+        "name": "Jane Doe",
+        "email": "janedoe@example.com",
+        "phone": "9876543210",
+        "isActive": false
+      }
+    ]
+    ```
 
 ## Contributing
 
