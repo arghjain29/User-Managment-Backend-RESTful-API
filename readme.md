@@ -127,6 +127,11 @@ This project provides a backend service for managing users. It includes APIs for
     ]
     ```
 
+## Postman Collection
+
+You can find the Postman collection for testing all the above API endpoints [here](https://www.postman.com/technical-cosmologist-52026975/workspace/my-workspace/collection/41195186-14f6f899-3344-4dc7-8a6d-45f6df64b2a5?action=share&creator=41195186&active-environment=41195186-06009d50-bea6-4612-95f4-b549e89c9b1e).
+
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request.
