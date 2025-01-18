@@ -97,17 +97,6 @@ This project provides a backend service for managing users. It includes APIs for
     }
     ```
 
-### Account Management
-
-- **POST /api/password-reset**: Reset the user's password.
-  - **Body**: `{ "email": "johndoe@example.com" }`
-  - **Response**: 
-    ```json
-    {
-      "message": "Password reset email sent"
-    }
-    ```
-
 - **POST /api/deactivate**: Deactivate the user's account. (Requires authentication with JWT token)
   - **Response**: 
     ```json
